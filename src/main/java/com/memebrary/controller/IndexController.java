@@ -12,6 +12,6 @@ public class IndexController {
 	@RequestMapping("/")
 	@ResponseBody
 	String home() {
-		return "Hello World!";
+		return "It works!";
 	}
 }
