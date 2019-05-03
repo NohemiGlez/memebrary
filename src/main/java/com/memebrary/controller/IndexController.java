@@ -12,6 +12,6 @@ public class IndexController {
 	@RequestMapping("/")
 	@ResponseBody
 	String home() {
-		return "Welcome to memebrary!";
+		return "You’re strong. But I could snap my fingers, and your successful deploy cease to exist.";
 	}
 }
