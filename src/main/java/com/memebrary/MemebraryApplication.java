@@ -2,6 +2,7 @@ package com.memebrary;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 public class MemebraryApplication {
@@ -10,4 +11,8 @@ public class MemebraryApplication {
 		SpringApplication.run(MemebraryApplication.class, args);
 	}
 
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(SpringBootApplication.class);
+    }
+	
 }
