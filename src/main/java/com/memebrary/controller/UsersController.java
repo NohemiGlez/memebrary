@@ -34,4 +34,10 @@ public class UsersController {
         userJpaRepository.save(user);
         return userJpaRepository.findByName(user.getName());
     }
+    
+    @DeleteMapping(value = "/{name}")
+    public  void deleteUser(@PathVariable final String name) {
+    	User user = userJpaRepository.findByName(name);
+    	userJpaRepository.delete(user);
+    }
 }
