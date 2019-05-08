@@ -1,6 +1,5 @@
 package com.memebrary.model;
 
-import javax.persistence.*;
 /*
 @Entity
 data class User(
@@ -12,8 +11,14 @@ data class User(
     val email: String,
     val password: String
 )*/
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +30,14 @@ public class User {
 
     public User(){}
 
-    public User(String name, String nickname, String email, String password) {
-        this.name = name;
-        this.nickname = nickname;
-        this.email = email;
-        this.password = password;
-    }
+    public User(Long id, String name, String nickname, String email, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.nickname = nickname;
+		this.email = email;
+		this.password = password;
+	}
 
     public Long getId() {
         return id;
