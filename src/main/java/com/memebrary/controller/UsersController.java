@@ -37,7 +37,7 @@ public class UsersController {
     
     @DeleteMapping(value = "/{name}")
     public  void deleteUser(@PathVariable final String name) {
-    	User user = userJpaRepository.findByName(name);
-    	userJpaRepository.delete(user);
+        User user = userJpaRepository.findByName(name);
+        userJpaRepository.delete(user);
     }
 }
