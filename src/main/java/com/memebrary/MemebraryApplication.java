@@ -12,7 +12,7 @@ public class MemebraryApplication {
 	}
 
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(SpringBootApplication.class);
-    }
-	
+		return application.sources(MemebraryApplication.class);
+	}
+
 }
