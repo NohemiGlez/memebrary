@@ -1,4 +1,4 @@
-package com.memebrary.util;
+package com.memebrary.config;
 
 import javax.sql.DataSource;
 
