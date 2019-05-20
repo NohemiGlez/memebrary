@@ -1,59 +1,77 @@
 package com.memebrary.model;
 
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "images")
 public class Image {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
-    private String title;
-    private Byte[] image;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long id;
+	private String title;
+	private String image;
+	@OneToOne
+	@JoinColumn(name = "id_user")
+	private User user;
 
-    @ManyToMany
-    @JoinTable(
-        name = "images_tags",
-        joinColumns = @JoinColumn(name = "id_image"),
-        inverseJoinColumns = @JoinColumn(name = "id_tag"))
-    Set<Tag> imagesTags;
+	Image() {}
 
-    public Image(Long id, String title, Byte[] image) {
-        this.id = id;
-        this.title = title;
-        this.image = image;
-    }
+	public Image(String title, String image) {
+		super();
+		this.title = title;
+		this.image = image;
+	}
 
-    public Image(String title, Byte[] image) {
-        this.title = title;
-        this.image = image;
-    }
+	public Image(Long id, String title, String image) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.image = image;
+	}
 
-    Image() {}
+	public Image(Long id, String title, String image, User user) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.image = image;
+		this.user = user;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public Byte[] getImage() {
-        return this.image;
-    }
+	public String getImage() {
+		return image;
+	}
 
-    public void setImage(Byte[] image) {
-        this.image = image;
-    }
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 }
