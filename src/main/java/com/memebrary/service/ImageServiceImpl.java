@@ -23,7 +23,6 @@ public class ImageServiceImpl implements ImageService{
     }
 
     public void save(Image image) {
-
         imageJpaRepository.save(image);
     }
 

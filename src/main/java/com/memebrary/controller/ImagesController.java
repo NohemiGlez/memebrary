@@ -33,10 +33,8 @@ public class ImagesController {
     }
 
     @PostMapping(value = "/post")
-    public Image addImage(@RequestBody final Image image) {
-
+    public void addImage(@ModelAttribute("form") final Image image) {
         imageJpaRepository.save(image);
-        return imageJpaRepository.findImageByTitle(image.getTitle());
     }
 
 }

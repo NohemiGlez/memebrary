@@ -26,7 +26,7 @@ public class Image {
 	@Column(name = "id_user")
 	private Long id_user;
 
-	Image() {}
+	public Image() {}
 
 	public Image(String title, String image) {
 		super();
