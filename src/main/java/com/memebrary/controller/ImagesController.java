@@ -37,4 +37,14 @@ public class ImagesController {
         imageJpaRepository.save(image);
     }
 
+    @PostMapping(value = "/post2", consumes = "application/json")
+    public void addImage2(@RequestBody final Image image) {
+        imageJpaRepository.save(image);
+    }
+
+    @DeleteMapping(value = "/delete")
+    public void deleteAll() {
+        imageJpaRepository.deleteAll();
+    }
+
 }
