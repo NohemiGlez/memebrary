@@ -11,27 +11,20 @@ public class Image {
     @Column(name = "id", nullable = false)
     private Long id;
     private String title;
-    private Byte[] image;
+    private String image;
 
-    @ManyToMany
-    @JoinTable(
-        name = "images_tags",
-        joinColumns = @JoinColumn(name = "id_image"),
-        inverseJoinColumns = @JoinColumn(name = "id_tag"))
-    Set<Tag> imagesTags;
-
-    public Image(Long id, String title, Byte[] image) {
+    public Image(Long id, String title, String image) {
         this.id = id;
         this.title = title;
         this.image = image;
     }
 
-    public Image(String title, Byte[] image) {
+    public Image(String title, String image) {
         this.title = title;
         this.image = image;
     }
 
-    Image() {}
+    public Image() {}
 
     public Long getId() {
         return id;
@@ -49,11 +42,11 @@ public class Image {
         this.title = title;
     }
 
-    public Byte[] getImage() {
+    public String getImage() {
         return this.image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }
