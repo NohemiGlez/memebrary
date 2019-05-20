@@ -20,25 +20,23 @@ import java.util.List;
 @RequestMapping(value = "/images")
 public class ImagesController {
 
-    private final ImageJpaRepository ImageJpaRepository;
+    private final ImageJpaRepository imageJpaRepository;
 
     @Autowired
     public ImagesController(ImageJpaRepository imageJpaRepository) {
-        ImageJpaRepository = imageJpaRepository;
+        this.imageJpaRepository = imageJpaRepository;
     }
 
     @GetMapping(value = "/all")
     public List<Image> findAll() {
-        return ImageJpaRepository.findAll();
+        return imageJpaRepository.findAll();
     }
 
-    @PostMapping(path = "/post")
-    public void addImage(@RequestBody Image image) {
+    @PostMapping(value = "/post")
+    public Image addImage(@RequestBody final Image image) {
 
-        this.ImageJpaRepository.save(image);
+        imageJpaRepository.save(image);
+        return imageJpaRepository.findImageByTitle(image.getTitle());
     }
 
-    public Image findByTag(@PathVariable final String tag) {
-        return  null;
-    }
 }
