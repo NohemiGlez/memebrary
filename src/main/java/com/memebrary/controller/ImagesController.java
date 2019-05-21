@@ -27,6 +27,7 @@ public class ImagesController {
         this.imageJpaRepository = imageJpaRepository;
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @GetMapping(value = "/all")
     public List<Image> findAll() {
         return imageJpaRepository.findAll();
