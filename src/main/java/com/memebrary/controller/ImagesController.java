@@ -38,6 +38,7 @@ public class ImagesController {
         imageJpaRepository.save(image);
     }
 
+    @CrossOrigin(origins = "http://localhost:8100")
     @PostMapping(value = "/post2", consumes = "application/json")
     public void addImage2(@RequestBody final Image image) {
         imageJpaRepository.save(image);
